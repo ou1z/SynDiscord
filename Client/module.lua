@@ -47,11 +47,6 @@ do
             Action = "START_RELAY",
             Token = self.User.Token
         }))
-        if Information.username and self.__meta__.EventListeners.ready then
-            for i,v in pairs(self.__meta__.EventListeners.ready) do
-                pcall(v, self.User)
-            end
-        end
         return self.User
     end
 
