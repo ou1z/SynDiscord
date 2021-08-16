@@ -6,7 +6,7 @@ Client:on('ready', function()
 end)
 
 Client:on('messageCreate', function(message)
-    print(string.format('%s => %s', message.author.tag, message.content))
+    print(string.format('%s => %s', message.author.username, message.content))
 end)
 
 Client:login('TOKEN')
