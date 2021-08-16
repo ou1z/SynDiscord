@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-ws": "^5.0.2",
+    "node-fetch": "^2.6.1",
+    "ws": "^8.1.0"
+  },
+  "name": "relayserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start":"node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
