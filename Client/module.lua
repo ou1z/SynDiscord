@@ -98,6 +98,18 @@ do -- Client Functions
                         return res.Body
                     end
 
+                    function message.react(emoji)
+                        local emoji_urlencoded = game:GetService("HttpService"):UrlEncode(emoji)
+                        local res = self:Request({
+                            Url = SynDiscord.API_PROXY .. string.format('channels/%s/messages/%s/reactions/%s/%%40me', message.channel_id, message.id, emoji_urlencoded),
+                            Method = 'PUT',
+                            Headers = {
+                                ['Content-Type'] = 'application/json'  
+                            }
+                        })
+                        return res.Body
+                    end
+
                     function message.reply(content, tbl)
                         local t = {
                             content = content,
@@ -166,7 +178,7 @@ do -- Util Functions
 
     function SynDiscord.Utils:SnakeToCamelCase(snake_case) -- used for event names, ex: message_created -> messageCreated
         local res = string.gsub(snake_case, "_(%w+)", function(s)
-            return string.upper(string.sub(s,1,1))..string.sub(s,2)
+            return string.upper(string.sub(s, 1, 1)) .. string.sub(s,2)
         end)
         return res 
     end
