@@ -6,7 +6,24 @@ Client:on('ready', function()
 end)
 
 Client:on('messageCreate', function(message)
-    print(string.format('%s => %s', message.author.username, message.content))
+    if message.author.id == Client.User.id then
+        if message.content == 'ping' then
+            local embed = SynDiscord.Embeds.Create()
+                
+            embed:setFields({
+                {
+                    inline = true,
+                    name = "NAME",
+                    value = "VALUE"
+                }
+            })
+            embed:setTitle('This is a title.')
+
+            message.reply('pong', {
+                embeds = {embed}
+            }) 
+        end
+    end
 end)
 
 Client:login('TOKEN')
