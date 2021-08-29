@@ -7,7 +7,7 @@ end)
 
 Client:on('messageCreate', function(message)
     if message.author.id == Client.User.id then
-        if message.content == 'ping' then
+        if message.content == '.ping' then
             local embed = SynDiscord.Embeds.Create()
                 
             embed:setFields({
@@ -22,6 +22,8 @@ Client:on('messageCreate', function(message)
             message.reply('pong', {
                 embeds = {embed}
             }) 
+        elseif message.content == '.react' then
+            message.react('👍')
         end
     end
 end)
