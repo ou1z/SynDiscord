@@ -32,9 +32,11 @@ app.use(express.json())
 
 app.use((req, res, next) => {
 
-    delete req.headers['syn-fingerprint']
-    delete req.headers['syn-user-identifier']
-    delete req.headers['user-agent']
+    if (req.headers['syn-fingerprint']) {
+        delete req.headers['syn-fingerprint']
+        delete req.headers['syn-user-identifier']
+        delete req.headers['user-agent']
+    }
     req.headers.host = 'canary.discord.com'
     
     next()
