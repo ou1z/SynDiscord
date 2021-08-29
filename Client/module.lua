@@ -10,7 +10,7 @@ local SynDiscord = {
     API_ROOT = string.format('http://%s/', RELAY_ROOT)
 }
 
-do
+do -- Client Functions
     SynDiscord.Client.__index = SynDiscord.Client
 
     function SynDiscord.Client.new()
@@ -88,7 +88,7 @@ do
     end
 end
 
-do
+do -- Util Functions
     function SynDiscord.Utils:JSONDecode(JSON)
         return game:GetService("HttpService"):JSONDecode(JSON)
     end
