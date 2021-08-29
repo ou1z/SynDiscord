@@ -79,7 +79,7 @@ do
             end
         end)
 
-        spawn(function()
+        spawn(function() -- needed to keep the websocket client alive. so it doesnt just shut down after 30 seconds or so
             while wait(5) do
                 client:Send(SynDiscord.Utils:JSONEncode({
                     Action = "Keep-Alive"
