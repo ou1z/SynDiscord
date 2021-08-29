@@ -110,7 +110,7 @@ do
         return true
     end
 
-    function SynDiscord.Utils:SnakeToCamelCase(snake_case) -- used for event names
+    function SynDiscord.Utils:SnakeToCamelCase(snake_case) -- used for event names, ex: message_created -> messageCreated
         local res = string.gsub(snake_case, "_(%w+)", function(s)
             return string.upper(string.sub(s,1,1))..string.sub(s,2)
         end)
