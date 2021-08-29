@@ -6,7 +6,6 @@ local RELAY_ROOT = 'syn-discord-wrapper.herokuapp.com'
 local SynDiscord = {
     Client = {},
     Utils = {},
-    API_ROOT = "https://www.discord.com/api/v9/",
     WEBSOCKET_RELAY_SERVER = string.format('ws://%s/ws', RELAY_ROOT),
     API_ROOT = string.format('http://%s/', RELAY_ROOT)
 }
