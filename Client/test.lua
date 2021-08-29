@@ -1,4 +1,4 @@
-local SynDiscord = loadstring(game:HttpGet('https://raw.githubusercontent.com/ou1z/SynDiscord/main/Client/module.lua'))()
+local SynDiscord = loadstring(game:HttpGet('https://raw.githubusercontent.com/ou1z/SynDiscord/main/Client/module.lua?token=AOC4R5JZFTKYEAG6GCMUMADBFPDJM'))()
 local Client = SynDiscord.Client.new()
 
 Client:on('ready', function()
