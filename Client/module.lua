@@ -118,6 +118,31 @@ do -- Client Functions
                         return res.Body
                     end
 
+                    function message.edit(content, tbl)
+                        local t = {
+                            content = content,
+                            message_reference = {
+                                channel_id = message.channel.id,
+                                guild_id = message.guild_id,
+                                message_id = message.id
+                            }
+                        }
+                        if tbl then
+                            for i,v in pairs(tbl) do
+                                t[i] = v
+                            end
+                        end
+                        local res = self:Request({
+                            Url = SynDiscord.API_PROXY .. string.format('channels/%s/messages/%s', message.channel_id, message.id),
+                            Method = 'PATCH',
+                            Headers = {
+                                ['Content-Type'] = 'application/json'  
+                            },
+                            Body = SynDiscord.Utils:JSONEncode(t)
+                        })
+                        return res.Body 
+                    end
+
                     function message.reply(content, tbl)
                         local t = {
                             content = content,
