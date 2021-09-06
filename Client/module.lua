@@ -110,6 +110,14 @@ do -- Client Functions
                         return res.Body
                     end
 
+                    function message.delete()
+                        local res = self:Request({
+                            Url = SynDiscord.API_PROXY .. string.format('channels/%s/messages/%s', message.channel_id, message.id),
+                            Method = 'DELETE'
+                        })
+                        return res.Body
+                    end
+
                     function message.reply(content, tbl)
                         local t = {
                             content = content,
