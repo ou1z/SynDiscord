@@ -1,7 +1,7 @@
 if not syn or not syn.websocket then
     return game.Players.LocalPlayer:Kick('Your exploit does not support websockets.')
 end
-local RELAY_ROOT = 'syn-discord-wrapper.herokuapp.com' -- needed, since synapse doesnt support WebsocketSecure
+local RELAY_ROOT = 'syn-discord-wrapper.herokuapp.com' -- needed, since synapse doesnt support wss
 
 local SynDiscord = {
     Client = {},
